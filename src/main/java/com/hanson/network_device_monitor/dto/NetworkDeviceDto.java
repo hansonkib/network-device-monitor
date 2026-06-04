@@ -24,7 +24,6 @@ public class NetworkDeviceDto {
             String message
     ) {}
 
-    // ── Response DTOs ─────────────────────────────────────────────────────────
 
     public record StatusReportResponse(
             UUID id,
