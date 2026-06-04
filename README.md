@@ -53,7 +53,6 @@ cd network-monitor
 # Build and start everything
 docker compose up --build
 
-# Frontend → http://localhost:3000
 # Backend  → http://localhost:8080
 ```
 
@@ -84,7 +83,6 @@ docker run -d \
 ### 2. Backend
 
 ```bash
-cd backend
 ./mvnw spring-boot:run
 # API available at http://localhost:8080
 ```
@@ -105,7 +103,7 @@ DB_PASSWORD=postgres \
 Flyway manages the schema. Migrations live in:
 
 ```
-backend/src/main/resources/db/migration/
+src/main/resources/db/migration/
   V1__create_devices_and_status_reports.sql
 ```
 
@@ -118,7 +116,6 @@ Flyway runs automatically on startup. To add a new migration, create `V2__<descr
 ### Backend
 
 ```bash
-cd backend
 ./mvnw test
 ```
 
@@ -126,11 +123,7 @@ Tests use H2 in-memory database (no PostgreSQL needed). Covers:
 - Unit tests — `DeviceServiceTest` (stale logic, CRUD, error cases)
 - Integration tests — `DeviceControllerIntegrationTest` (full lifecycle via MockMvc)
 
-### Frontend
 
-```bash
-cd frontend
-npm test
 ```
 
 Covers `StatusBadge` component rendering across all states.
